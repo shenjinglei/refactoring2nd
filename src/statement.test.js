@@ -2,41 +2,7 @@ const statement = require("./statement");
 const invoices = require("./invoices");
 const plays = require("./plays");
 
-it("statement test", () => {
-  //   const invoices = JSON.parse(`
-  //         {
-  //           "customer": "BigCo",
-  //           "performances": [
-  //             {
-  //               "audience": 55,
-  //               "playID": "hamlet"
-  //             },
-  //             {
-  //               "audience": 35,
-  //               "playID": "as-like"
-  //             },
-  //             {
-  //               "audience": 40,
-  //               "playID": "othello"
-  //             }
-  //           ]
-  //         }
-  //       `);
-  //   const plays = JSON.parse(`{
-  //         "as-like": {
-  //           "name": "As You Like It",
-  //           "type": "comedy"
-  //         },
-  //         "hamlet": {
-  //           "name": "Hamlet",
-  //           "type": "tragedy"
-  //         },
-  //         "othello": {
-  //           "name": "Othello",
-  //           "type": "tragedy"
-  //         }
-  //       }`);
-
+test("statement test", () => {
   console.log("invoices", invoices());
   expect(statement(invoices(), plays())).toBe(`Statement for BigCo
  Hamlet: $650.00 (55 seats)
