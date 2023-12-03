@@ -1,10 +1,11 @@
-const statement = require("./statement");
-const invoices = require("./invoices");
-const plays = require("./plays");
+import statement from "./statement";
+import invoices from "./invoices";
+import plays from "./plays";
 
-test("statement test", () => {
-  console.log("invoices", invoices());
-  expect(statement(invoices(), plays())).toBe(`Statement for BigCo
+test("statement test", async () => {
+  console.log("invoices", invoices);
+
+  expect(statement(invoices, plays)).toBe(`Statement for BigCo
  Hamlet: $650.00 (55 seats)
  As You Like It: $580.00 (35 seats)
  Othello: $500.00 (40 seats)
