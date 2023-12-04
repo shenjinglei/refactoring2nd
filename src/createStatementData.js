@@ -35,7 +35,7 @@ class PerformanceCalculator {
   }
 }
 
-export default function createStatementData(invoice, plays) {
+export function createStatementData(invoice, plays) {
   const statementData = {};
   statementData.customer = invoice.customer;
   statementData.performances = invoice.performances.map(enrichPerfoemance);
@@ -44,7 +44,7 @@ export default function createStatementData(invoice, plays) {
   return statementData;
 
   function enrichPerfoemance(aPerformance) {
-    const calculator = new PerformanceCalculator(
+    const calculator = createPerformanceCalculator(
       aPerformance,
       playFor(aPerformance)
     );
@@ -66,4 +66,8 @@ export default function createStatementData(invoice, plays) {
   function totalVolumeCredits(data) {
     return data.performances.reduce((total, p) => total + p.volumeCredits, 0);
   }
+}
+
+function createPerformanceCalculator(aPerformance, aPlay) {
+  return new PerformanceCalculator(aPerformance, aPlay);
 }
